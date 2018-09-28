@@ -39,13 +39,37 @@ end
 end
 
 def user_input
-  puts "Please enter your two Roman numerals, separated by a space."
-  input = gets.chomp
-  numbers = input.split(" ").each {|x| x.to_i}
-  puts numbers[0] + " + " + numbers[1] + " = #{RomanNumerals.new.calculate(numbers[0], numbers[1])}"
+  puts "What would you like to do?"
+  puts "A. Convert Roman numeral to integer"
+  puts "B. Convert integer to Roman numeral"
+  puts "C. Add two Roman numerals"
+  @choice = gets.chomp.capitalize
 end
 
-user_input
+def action
+  case @choice
+  when "A"
+    puts "Please enter a Roman numeral"
+    input = gets.chomp
+    puts input.upcase + " as an integer is #{RomanNumerals.new.find_number(input.upcase)}"
+  when "B"
+    puts "Please enter an integer"
+    input = gets.chomp
+    puts input + " as a Roman numeral is #{RomanNumerals.new.find_numeral(input.to_i)}"
+  when "C"
+    puts "Please enter your two Roman numerals, separated by a space."
+    input = gets.chomp.upcase
+    numbers = input.split(" ").each {|x| x.to_i}
+    puts numbers[0] + " + " + numbers[1] + " = #{RomanNumerals.new.calculate(numbers[0], numbers[1])}"
+  end
+end
+
+def start
+  user_input
+  action
+end
+
+start
 
 # = RomanNumerals.new
 #puts n.find_number("LXL")
