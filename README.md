@@ -1,6 +1,6 @@
 # Roman Numerals
 
-This program takes in two Roman Numerals by user input, and returns the sum as a Roman Numeral.
+This program converts Roman numerals to integers and vice versa. Can add two Roman Numerals together. 
 
 ## Getting started
 
